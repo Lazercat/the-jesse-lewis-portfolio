@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "ES6 Arrow Function",
+        "description": "The es6 arrow function provides an awesome way to...",
+        "comment_qty": 2,
+        "likes": 40,
+        "shares": 32,
+        "comments": [
+            {
+                "id": 1,
+                "author": "Anonymous",
+                "date": 12345761348,
+                "comment": "rad article! blah blah...",
+                "code": ""
+            }, 
+            {
+                "id": 1,
+                "author": "Jason Bourne",
+                "date": 12345761350,
+                "comment": "also super rad article! blah blah...",
+                "code": ""
+            }            
+        ]
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "title": "CodeScratch",
+        "description": "",
+        "tech-stack": [
+            "React",
+            "React-Router",
+            "FirebaseDB",
+            "MongoDB",
+            "Passport",
+            "Mongoose",
+            "Heroku Host"
+        ],
+        "github": "https://github.com/Lazercat/",
+        "host": "https://heroku-app.com",
+        "imgLg": "",
+        "imgSm": "",
+        "team": [
+            "Devon",
+            "Jesse",
+            "So and So"
+        ]
+    },
+    {},
+    {},
+    {}
+]
