@@ -4,7 +4,7 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { withStyles } from '@material-ui/core/styles';
 import JesseAppBar from './JesseAppBar';
-import NavDrawer from './NavDrawer';
+import MiniDrawer from './NavDrawer2';
 
 const styles = (theme) => ({
     root: {
@@ -50,7 +50,7 @@ class Main extends Component {
                 <CssBaseline />
                 <div className={classes.root}>
                     <JesseAppBar onMenuClick={this.handleDrawerToggle} onThemeClick={this.handleThemeToggle} />
-                    <NavDrawer open={this.state.navOpen} toggleDrawer={this.handleDrawerToggle} />
+                    <MiniDrawer open={this.state.navOpen} toggleDrawer={this.handleDrawerToggle} />
                     <div className={classes.appFrame}>
                         {children}
                     </div>

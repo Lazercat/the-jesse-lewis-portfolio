@@ -1,0 +1,406 @@
+@keyframes animatedBackground {
+    from {
+      background-position: 0 0; }
+    to {
+      background-position: 100% 0; } }
+  body {
+    background: #333; }
+  
+  .home-text {
+    padding-top: 120px; }
+  
+  button {
+    color: white;
+    background: black;
+    box-shadow: 2px 2px 5px #fff;
+    margin: 2%; }
+  
+  .main-wrap {
+    margin-top: 40px;
+    align-items: center;
+    width: 100%; }
+  
+  .dark-background {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #333;
+    padding: 50px;
+    margin-top: 50px; }
+  
+  .dark-background > p {
+    font-size: 16px; }
+  
+  .dark-background > h3 {
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 20px; }
+  
+  .Site-content {
+    height: 100%;
+    min-height: 800px; }
+  
+  .project-img {
+    width: 100%;
+    min-width: 100px;
+    height: auto;
+    margin: 0 auto;
+    align-self: center; }
+  
+  .sidenav {
+    padding-top: 25px; }
+  
+  .projects {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: left; }
+  
+  .project {
+    width: 100%;
+    padding: 20px;
+    min-width: 220px;
+    flex: 1;
+    margin-bottom: 50px;
+    border: 1px dashed rgba(255, 255, 255, 0.3); }
+  
+  .img-responsive {
+    width: 33%;
+    height: auto;
+    text-align: left;
+    margin: 0; }
+  
+  /* LINKS */
+  .project-menu {
+    width: 100%;
+    height: 50px;
+    display: block;
+    text-align: center; }
+  
+  .project-menu > li {
+    display: inline-block; }
+  
+  a.project-link {
+    color: white;
+    background: black;
+    box-shadow: 2px 2px 5px #fff;
+    border: 1px solid white;
+    margin-bottom: 15px;
+    padding: 7px;
+    text-decoration: none; }
+  
+  a.project-link:hover {
+    background-color: #444; }
+  
+  .project-text {
+    font-size: 14px;
+    padding: 2px; }
+  
+  .project-text > ul {
+    list-style: none;
+    margin-left: calc(100%/8);
+    text-align: center; }
+  
+  .project-text > ul > li {
+    margin: 10px;
+    min-width: 120px;
+    display: inline-block; }
+  
+  .jumbotron {
+    margin-top: 0;
+    padding-top: 0;
+    color: rgba(255, 255, 255, 0.9);
+    height: 100%; }
+    .jumbotron h1 {
+      font-family: "Scope One", serif;
+      font-weight: bolder;
+      line-height: .1em;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-name: glow;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-iteration-count: infinite;
+      animation-duration: 4s;
+      animation-name: glow;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      background-position: 0px 0px;
+      background-repeat: repeat-x;
+      animation: animatedBackground 40s linear infinite;
+      text-shadow: 0px 4px 2px rgba(3, 3, 3, 0.8);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text; }
+  
+  /* Don't show shadows when selecting text */
+  ::-moz-selection, ::selection {
+    background: #5af;
+    color: #fff;
+    text-shadow: none; }
+  
+  @media only screen and (min-width: 220px) and (max-width: 500px) {
+    .jumbotron .h1, .jumbotron h1, h1 {
+      font-size: 100px; }
+  
+    p.glow {
+      font-size: 10px; }
+  
+    .project-text > p {
+      font-size: 13px;
+      min-width: 136px;
+      wrap: break-word; }
+  
+    ul {
+      padding: 0;
+      margin: 0; }
+  
+    a.project-link {
+      min-width: 120px;
+      display: block; }
+  
+    .dark-background {
+      padding: 2px; }
+  
+    .col-xs-6 {
+      margin: 0;
+      padding: 1px; }
+  
+    .main-wrap {
+      margin-top: 120px; } }
+  @media only screen and (max-width: 769px) and (min-width: 500px) {
+    .jumbotron .h1, .jumbotron h1, h1 {
+      font-size: 150px; }
+  
+    p.glow {
+      font-size: 30px; }
+  
+    p {
+      font-size: 12px; }
+  
+    .main-wrap {
+      margin-top: 120px; } }
+  @media only screen and (min-width: 769px) {
+    .jumbotron .h1, .jumbotron h1, h1 {
+      margin-top: 0;
+      font-size: 200px; }
+  
+    p.glow {
+      font-size: 30px; }
+  
+    .main-wrap {
+      margin-top: 40px; } }
+  footer {
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%; }
+  
+  .homebg-animated {
+    background: black url(./img/cosmos2.jpg) repeat 0 0;
+    width: 100%;
+    opacity: 0.9;
+    margin: 0;
+    text-align: center;
+    height: 100vh;
+    box-sizing: border-box;
+    -webkit-transition: background-image 2s ease-in-out;
+    transition: background-image 2s ease-in-out;
+    -webkit-animation: slide 24s linear infinite; }
+  
+  .aboutbg-animated {
+    background: black url(./img/stars.jpg) repeat center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    opacity: 0.9;
+    margin: 0;
+    text-align: center;
+    height: 100vh;
+    box-sizing: border-box; }
+  
+  .projectsbg-animated {
+    background: black url(./img/dreambg.jpg) repeat 0 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    height: 100vh;
+    box-sizing: border-box; }
+  
+  .contactbg-animated {
+    background: black url(./img/dreambg.jpg) repeat 0 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    height: 100vh;
+    box-sizing: border-box; }
+  
+  p.glow {
+    -webkit-animation-duration: 4s;
+    -webkit-animation-name: glow;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-name: glow;
+    animation-direction: alternate;
+    animation-iteration-count: infinite; }
+  
+  .link-glow {
+    -webkit-animation-duration: 4s;
+    -webkit-animation-name: glow;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-name: glow;
+    animation-direction: alternate;
+    animation-iteration-count: infinite; }
+  
+  a.link-glow {
+    color: white;
+    text-decoration: none;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-name: glow;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-name: glow;
+    animation-direction: alternate;
+    animation-iteration-count: infinite; }
+  
+  @keyframes move-twink-back {
+    from {
+      background-position: 0 0; }
+    to {
+      background-position: -10000px 5000px; } }
+  @-webkit-keyframes move-twink-back {
+    from {
+      background-position: 0 0; }
+    to {
+      background-position: -10000px 5000px; } }
+  @-moz-keyframes move-twink-back {
+    from {
+      background-position: 0 0; }
+    to {
+      background-position: -10000px 5000px; } }
+  @-ms-keyframes move-twink-back {
+    from {
+      background-position: 0 0; }
+    to {
+      background-position: -10000px 5000px; } }
+  @keyframes move-clouds-back {
+    from {
+      background-position: 1 1; }
+    to {
+      background-position: 10000px 0; } }
+  @-webkit-keyframes move-clouds-back {
+    from {
+      background-position: 1 1; }
+    to {
+      background-position: 10000px 0; } }
+  @-moz-keyframes move-clouds-back {
+    from {
+      background-position: 1 1; }
+    to {
+      background-position: 10000px 0; } }
+  @-ms-keyframes move-clouds-back {
+    from {
+      background-position: 1; }
+    to {
+      background-position: 10000px 0; } }
+  .stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    opacity: .8; }
+  
+  .stars {
+    background: #000 url(./img/starfile.png) repeat top center;
+    z-index: -3;
+    opacity: 0.3; }
+  
+  .twinkling {
+    background: transparent url(./img/bubbles.png) repeat top center;
+    z-index: -2;
+    opacity: 0.1;
+    -moz-animation: move-twink-back 400s ease infinite;
+    -ms-animation: move-twink-back 400s ease infinite;
+    -o-animation: move-twink-back 400s ease infinite;
+    -webkit-animation: move-twink-back 400s ease infinite;
+    animation: move-twink-back 400s ease infinite;
+    z-index: -1;
+    opacity: 0.1;
+    -moz-animation: move-twink-back 200s linear infinite;
+    -ms-animation: move-twink-back 200s linear infinite;
+    -o-animation: move-twink-back 200s linear infinite;
+    -webkit-animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 200s linear infinite; }
+  
+  .clouds {
+    background: transparent url(./img/clouds-bg.png) repeat top center;
+    z-index: -1;
+    opacity: 0.9;
+    -moz-animation: move-clouds-back 400s ease infinite;
+    -ms-animation: move-clouds-back 400s ease infinite;
+    -o-animation: move-clouds-back 400s ease infinite;
+    -webkit-animation: move-clouds-back 400s ease infinite;
+    animation: move-clouds-back 400s ease infinite;
+    z-index: -2;
+    opacity: 0.2;
+    -moz-animation: move-clouds-back 200s linear infinite;
+    -ms-animation: move-clouds-back 200s linear infinite;
+    -o-animation: move-clouds-back 200s linear infinite;
+    -webkit-animation: move-clouds-back 200s linear infinite;
+    animation: move-clouds-back 200s linear infinite; }
+  
+  @-webkit-keyframes slide {
+    from {
+      background-position: 0 0; }
+    to {
+      background-position: -400px 0; } }
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 0px #ccff15; }
+    to {
+      text-shadow: 2px 3px 15px yellow; } }
+  /* Remove the navbar's default margin-bottom and rounded borders */
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999; }
+  
+  nav .navbar, .navbar-collapse, .collapse, div#myNavbar, .container-fluid {
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0); }
+  
+  .home-nav {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 40px; }
+  
+  .home-nav > a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    text-shadow: 1px 1px 3px #333; }
+  
+  .home-nav > a:hover {
+    color: white;
+    text-shadow: 1px 1px 3px #333;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 25px; }
+  
+  .jl-link a {
+    color: white; }
+  
+  /*# sourceMappingURL=style.css.map */
+  

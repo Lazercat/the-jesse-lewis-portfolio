@@ -18,17 +18,17 @@ const styles = (theme) => ({
     }
 });
 
-class Connect extends Component {
+class Projects extends Component {
     render() {
         const { classes, children, theme } = this.props;
 
         return (
             <div>
-                <h2> Connect</h2>
-                <p> This my react portfolio.</p>
+                <h2>Projects</h2>
+                <p> This my react projects listing.</p>
             </div>
         );
     }
 }
 
-export default withStyles(styles)(Connect);
+export default withStyles(styles)(Projects);
