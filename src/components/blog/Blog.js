@@ -6,8 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
-
-import ReactMarkdown from 'react-markdown';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -16,6 +14,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import Image from './img/code-pc.jpg';
 import Markdown from './Markdown';
 import post1 from './posts/blog-post.1.md';
 import post2 from './posts/blog-post.1.md';
@@ -42,6 +41,7 @@ const styles = theme => ({
     justifyContent: 'space-between',
   },
   mainFeaturedPost: {
+    backgroundImage: `url(${Image})`,
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing.unit * 4,
@@ -54,6 +54,9 @@ const styles = theme => ({
   },
   mainGrid: {
     marginTop: theme.spacing.unit * 3,
+  },
+  cardGrid: {
+    marginTop: theme.spacing.unit*2,
   },
   card: {
     display: 'flex',
@@ -125,8 +128,26 @@ function Blog(props) {
     <React.Fragment>
       <CssBaseline />
       <div className={classes.layout}>
-        <Toolbar className={classes.toolbarMain}>
-          <Button size="small">Subscribe</Button>
+        <main>
+          {/* Main featured post */}
+          <Paper className={classes.mainFeaturedPost}>
+            <Grid container>
+              <Grid item md={8} xs={12}>
+                <div className={classes.mainFeaturedPostContent}>
+                  <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                    Jesse's Web Engineering Blog.
+                  </Typography>
+                  <Typography variant="h5" color="inherit" paragraph>
+                    A journey of the mind through attempts at the many challenges and solutions presented in modern Javascript Engineering. 
+                  </Typography>
+                </div>
+              </Grid>
+            </Grid>
+          </Paper>
+          {/* End main featured post */}
+
+          <Toolbar className={classes.toolbarMain}>
+          <Button size="small" variant="contained"  color="secondary">Subscribe</Button>
           <Typography
             component="h2"
             variant="h5"
@@ -135,7 +156,7 @@ function Blog(props) {
             noWrap
             className={classes.toolbarTitle}
           >
-            Blog
+            
           </Typography>
           <IconButton>
             <SearchIcon />
@@ -144,31 +165,8 @@ function Blog(props) {
             Sign up
           </Button>
         </Toolbar>
-        <Toolbar variant="dense" className={classes.toolbarSecondary}>
-          {sections.map(section => (
-            <Typography color="inherit" noWrap key={section}>
-              {section}
-            </Typography>
-          ))}
-        </Toolbar>
-        <main>
-          {/* Main featured post */}
-          <Paper className={classes.mainFeaturedPost}>
-            <Grid container>
-              <Grid item md={6}>
-                <div className={classes.mainFeaturedPostContent}>
-                  <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                    Title of a longer featured blog post
-                  </Typography>
-                  <Typography variant="h5" color="inherit" paragraph>
-                    Multiple lines of text that form the lede, informing new readers quickly and
-                    efficiently about what&apos;s most interesting in this post&apos;s contents…
-                  </Typography>
-                </div>
-              </Grid>
-            </Grid>
-          </Paper>
-          {/* End main featured post */}
+
+
           {/* Sub featured posts */}
           <Grid container spacing={40} className={classes.cardGrid}>
             {featuredPosts.map(post => (

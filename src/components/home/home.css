@@ -16,7 +16,7 @@
     margin: 2%; }
   
   .main-wrap {
-    margin-top: 40px;
+    margin-top: 5px;
     align-items: center;
     width: 100%; }
   
@@ -24,8 +24,8 @@
     background: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     box-shadow: 1px 1px 3px #333;
-    padding: 50px;
-    margin-top: 50px; }
+    padding: 10px;
+    margin-top: 10px; }
   
   .dark-background > p {
     font-size: 16px; }
@@ -37,7 +37,7 @@
   
   .Site-content {
     height: 100%;
-    min-height: 800px; }
+    min-height: 600px; }
   
   .project-img {
     width: 100%;
@@ -193,7 +193,7 @@
     width: 100%; }
   
   .homebg-animated {
-    background: black url(./img/cosmos2.jpg) repeat 0 0;
+    background: black url(./img/Pleiades_large.jpg) repeat 0 0;
     width: 100%;
     opacity: 0.9;
     margin: 0;
@@ -203,37 +203,6 @@
     -webkit-transition: background-image 2s ease-in-out;
     transition: background-image 2s ease-in-out;
     -webkit-animation: slide 24s linear infinite; }
-  
-  .aboutbg-animated {
-    background: black url(./img/stars.jpg) repeat center;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    position: fixed;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    width: 100%;
-    opacity: 0.9;
-    margin: 0;
-    text-align: center;
-    height: 100vh;
-    box-sizing: border-box; }
-  
-  .projectsbg-animated {
-    background: black url(./img/dreambg.jpg) repeat 0 0;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    height: 100vh;
-    box-sizing: border-box; }
-  
-  .contactbg-animated {
-    background: black url(./img/dreambg.jpg) repeat 0 0;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    height: 100vh;
-    box-sizing: border-box; }
   
   p.glow {
     -webkit-animation-duration: 4s;
@@ -309,7 +278,7 @@
       background-position: 10000px 0; } }
   .stars, .twinkling, .clouds {
     position: absolute;
-    top: 0;
+    top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -320,42 +289,38 @@
   
   .stars {
     background: #000 url(./img/starfile.png) repeat top center;
-    z-index: -3;
+    z-index: -1;
     opacity: 0.3; }
   
   .twinkling {
     background: transparent url(./img/bubbles.png) repeat top center;
     z-index: -2;
-    opacity: 0.1;
-    -moz-animation: move-twink-back 400s ease infinite;
-    -ms-animation: move-twink-back 400s ease infinite;
-    -o-animation: move-twink-back 400s ease infinite;
-    -webkit-animation: move-twink-back 400s ease infinite;
-    animation: move-twink-back 400s ease infinite;
-    z-index: -1;
-    opacity: 0.1;
-    -moz-animation: move-twink-back 200s linear infinite;
-    -ms-animation: move-twink-back 200s linear infinite;
-    -o-animation: move-twink-back 200s linear infinite;
-    -webkit-animation: move-twink-back 200s linear infinite;
-    animation: move-twink-back 200s linear infinite; }
+    height: 100%;
+    opacity: 0.2;
+    -moz-animation: move-twink-back 200s ease infinite;
+    -ms-animation: move-twink-back 200s ease infinite;
+    -o-animation: move-twink-back 200s ease infinite;
+    -webkit-animation: move-twink-back 200s ease infinite;
+    animation: move-twink-back 200s ease infinite;
+  }
   
   .clouds {
-    background: transparent url(./img/clouds-bg.png) repeat top center;
+    background: transparent url(./img/cosmos3.jpg) repeat top center;
+    height: 100%;
     z-index: -1;
-    opacity: 0.9;
-    -moz-animation: move-clouds-back 400s ease infinite;
-    -ms-animation: move-clouds-back 400s ease infinite;
-    -o-animation: move-clouds-back 400s ease infinite;
-    -webkit-animation: move-clouds-back 400s ease infinite;
-    animation: move-clouds-back 400s ease infinite;
+    opacity: 0.6;
+    -moz-animation: move-clouds-back 800s ease infinite;
+    -ms-animation: move-clouds-back 800s ease infinite;
+    -o-animation: move-clouds-back 800s ease infinite;
+    -webkit-animation: move-clouds-back 800s ease infinite;
+    animation: move-clouds-back 800s ease infinite;
     z-index: -2;
     opacity: 0.2;
-    -moz-animation: move-clouds-back 200s linear infinite;
-    -ms-animation: move-clouds-back 200s linear infinite;
-    -o-animation: move-clouds-back 200s linear infinite;
-    -webkit-animation: move-clouds-back 200s linear infinite;
-    animation: move-clouds-back 200s linear infinite; }
+    -moz-animation: move-clouds-back 400s linear infinite;
+    -ms-animation: move-clouds-back 400s linear infinite;
+    -o-animation: move-clouds-back 400s linear infinite;
+    -webkit-animation: move-clouds-back 400s linear infinite;
+    animation: move-clouds-back 400s linear infinite; }
   
   @-webkit-keyframes slide {
     from {
@@ -391,13 +356,13 @@
     padding: 20px;
     text-shadow: 1px 1px 3px #333; }
   
-  .home-nav > a:hover {
+  /* .home-nav > a:hover {
     color: white;
     text-shadow: 1px 1px 3px #333;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.4);
     padding: 20px;
-    border-radius: 25px; }
+    border-radius: 25px; } */
   
   .jl-link a {
     color: white; }

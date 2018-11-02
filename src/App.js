@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import pink from '@material-ui/core/colors/pink';
-import teal from '@material-ui/core/colors/teal';
-
-import MiniDrawer from './components/layout/MiniDrawer';
+import Main from './components/layout/Main';
 import './App.css';
 
 const theme = { 
   palette: {
-    primary: {
-      main: '#b2ebf2',
-    },
-    secondary: {
-      main: '#ccff90',
-    },
+    primary: { main: '#1c2566' },
+    secondary: { main: '#1de9b6' }
   },
   navDrawer: {
       width: 200
@@ -30,9 +23,9 @@ class App extends Component {
     return (
       <React.Fragment>
         <Router>
-          <MiniDrawer theme={theme}>
+          <Main theme={theme}>
             {children}
-          </MiniDrawer>
+          </Main>
         </Router>
       </React.Fragment>
     );

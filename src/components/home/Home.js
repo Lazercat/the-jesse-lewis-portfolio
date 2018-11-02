@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
+
+import WorkIcon from '@material-ui/icons/Work';
+import WebIcon from '@material-ui/icons/Web';
+import LinkIcon from '@material-ui/icons/Link';
+
 import './home.css';
 
 const styles = (theme) => ({
+    layout: {
+        width: 'auto',
+        marginLeft: theme.spacing.unit * 3,
+        marginRight: theme.spacing.unit * 3,
+        [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+          width: 1100,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        },
+    },
     root: {
         width: '100%',
         height: '100%',
@@ -24,23 +43,40 @@ class Home extends Component {
     render() {
         const { classes, children, theme } = this.props;
         return (
-            <main class="Site-content">
-                <div class="jumbotron homebg-animated">
-                    <div class="stars"></div>
-                    <div class="twinkling"></div>
-                    <div class='clouds'></div>
-                    <div class="container text-center home-text">
-                        <div class="row ">
-                            <h1>The Jesse </h1>
-                            <h1>Lewis</h1>
-                            <p class="glow">Full Stack Javascript Engineer</p>
-                            <p class="glow">Digitizer of Dreams</p>
+            <main className="Site-content">
+                <div className="jumbotron homebg-animated">
+                    <div className="stars"></div>
+                    <div className="twinkling"></div>
+                    <div className='clouds'></div>
+                    <div className="container text-center home-text">
+                        <div className="row">
+                            <h1>Jesse</h1><h1> Lewis</h1>
+                            <h2>Full Stack Javascript Engineer & Digitizer of Dreams</h2>
+                            {/* <p>I am an innovator by heart who loves leveraging modern stack tools and reaching deep under the hood to achieve</p> */}
                         </div>
-                        <div class="row">
-                            <nav class="home-nav">
-                                <a href="/about">About</a>|
-                                <a href="/projects">Projects</a>|
-                                <a href="/contact">Contact</a>
+                        <div className="row">
+                            <nav className="home-nav">
+                            <Link to="/Portfolio">
+                                <Button variant="contained" color="secondary" className={classes.button}>
+                                    <WorkIcon className={classes.leftIcon} />
+                                    Portfolio
+                                </Button>
+                            </Link>
+
+                            <Link to="Projects">
+                                <Button variant="contained" color="secondary" className={classes.button}>
+                                    <WebIcon className={classes.leftIcon} />
+                                    Projects
+                                </Button>
+                            </Link>
+
+                            <Link to="/Connect">
+                                <Button variant="contained" color="secondary" className={classes.button}>
+                                    <WebIcon className={classes.leftIcon} />
+                                    Connect
+                                </Button>
+                            </Link>
+
                             </nav>
                         </div>
                     </div>
