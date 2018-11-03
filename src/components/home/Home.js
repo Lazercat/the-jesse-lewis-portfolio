@@ -19,13 +19,13 @@ import './home.css';
 const styles = (theme) => ({
     layout: {
         width: 'auto',
-        marginLeft: theme.spacing.unit * 3,
-        marginRight: theme.spacing.unit * 3,
-        [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-          width: 1100,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-        },
+        marginLeft: theme.spacing.unit ,
+        marginRight: theme.spacing.unit ,
+        // [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+        //   width: 1100,
+        //   marginLeft: 'auto',
+        //   marginRight: 'auto',
+        // },
     },
     root: {
         width: '100%',
@@ -42,8 +42,11 @@ const styles = (theme) => ({
         bottom: 0
     },
     row: {
-        marginTop: 100
-    }
+        flex: 1,
+        zIndex: 1,
+        paddingTop: theme.spacing.unit*10,
+    },
+    
 });
 
 class Home extends Component {
@@ -71,7 +74,7 @@ class Home extends Component {
                         </Grid>  
                   
                        </Grid> */}
-                            <div className="row">
+                            <div className={classes.row}>
                                 <h1>Jesse</h1><h1> Lewis</h1>
                                 <h2>Full Stack Javascript Engineer & Digitizer of Dreams</h2>
                             </div>
@@ -96,23 +99,23 @@ class Home extends Component {
                                 </a>
                                 </Grid>
 
-                                <Grid item xs={12} sm={6} md={3}>
+                                {/* <Grid item xs={12} sm={6} md={3}>
                                 <a href="http://www.medium.com/@TheJesseLewis" target="_blank">
                                 <Button variant="outlined" color="secondary" className={classes.button}>
                                     <LaunchIcon color="secondary" />
                                     &nbsp;&nbsp;Blog
                                 </Button>
                                 </a>
-                                </Grid>
+                                </Grid> */}
 
-                                <Grid item xs={12} sm={6} md={3}>
+                                {/* <Grid item xs={12} sm={6} md={3}>
                                 <a href="mailto:jesseaustinlewis@gmail.com?subject= Hello from thejesselewis.com" target="_blank">
                                 <Button variant="outlined" color="secondary" className={classes.button}>
                                     <MailIcon color="secondary" />
                                     &nbsp;&nbsp;Email
                                 </Button>
                                 </a>
-                                </Grid>
+                                </Grid> */}
 
                                 <Grid item xs={12} sm={6} md={3}>
                                 
