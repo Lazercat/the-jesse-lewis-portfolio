@@ -11,6 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import CodeIcon from '@material-ui/icons/Code';
+import MailIcon from '@material-ui/icons/Mail';
+import LaunchIcon from '@material-ui/icons/Launch';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -25,8 +27,8 @@ import Download from '@axetroy/react-download';
 const styles = theme => ({
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   },
   toolbarMain: {
     borderBottom: `1px solid ${theme.palette.grey[300]}`,
@@ -115,8 +117,6 @@ function Portfolio(props) {
     <React.Fragment>
       <CssBaseline />
       <div className={classes.layout}>
-        <main>
-          {/* Main featured post */}
           <Paper className={classes.mainFeaturedPost}>
             <Grid container>
               <Grid item md={8} xs={12}>
@@ -125,7 +125,8 @@ function Portfolio(props) {
                     Jesse's Portfolio
                   </Typography>
                   <Typography variant="h5" color="inherit" paragraph>
-                    I am a self starter and love leveraging modern technology to support process improvement through high tech business solutions and web projects that provide accountability, simplify user experience, strengthen business intelligence, and improve overall performance (I call this full stack process improvement).
+                    I am a self starter and love constantly researching and leveraging modern technology to support process improvement through high tech business solutions and web projects. 
+                    I am a believer in the open source web and participate on Medium.com and Github to share in the progression of tech.
                   </Typography>
                 </div>
               </Grid>
@@ -133,26 +134,29 @@ function Portfolio(props) {
           </Paper>
           {/* End main featured post */}
           <Toolbar className={classes.toolbarMain}>
+          <Grid container spacing={8}>
+            <Grid item>
             <Download file="Jesse-Lewis-Resume.pdf" content="# hello world">
                 <Button variant="contained" color="secondary" className={classes.button}>
                     <ArchiveIcon className={classes.leftIcon} />
-                    Resume
+                    Resume: PDF
                 </Button>
             </Download>
-            <Typography
-                component="h2"
-                variant="h5"
-                color="inherit"
-                align="center"
-                noWrap
-                className={classes.toolbarTitle}
-            >           
-            </Typography>
+            </Grid>
+            <Grid item>
+            <a href="mailto:jesseaustinlewis@gmail.com?subject=hello from thejesselewis.com">
+            <Button variant="contained" color="secondary" className={classes.button}>
+                <MailIcon className={classes.leftIcon} />
+                Email Jesse
+            </Button>
+            </a>
+            </Grid>
+            </Grid>
         </Toolbar>
 
 
           {/* Sub featured posts */}
-          <Grid container spacing={40} className={classes.cardGrid}>
+          <Grid container spacing={24} className={classes.cardGrid}>
             {featuredPosts.map(post => (
               <Grid item key={post.title} xs={12} md={12}>
                 <Card className={classes.card}>
@@ -168,7 +172,7 @@ function Portfolio(props) {
                         {post.description}
                       </Typography>
                       {
-                        post.hasOwnProperty('skills')? post.skills.map(skill=>(<Chip className={classes.chip} variant="outlined" color="primary" label={skill} />)):null
+                        post.hasOwnProperty('skills')? post.skills.map((skill, key)=>(<Chip key={key} className={classes.chip} variant="outlined" color="primary" label={skill} />)):null
                       }
                     </CardContent>
                   </div>
@@ -177,66 +181,64 @@ function Portfolio(props) {
             ))}
           </Grid>
           {/* End sub featured posts */}
-          <Grid container spacing={40} className={classes.mainGrid}>
+          <Grid container spacing={24} className={classes.mainGrid}>
  
             {/* Sidebar */}
-            <Grid item xs={6} md={4}>
+            <Grid item xs={12} sm={4} md={3}>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
                 <Typography variant="h6" gutterBottom>
-                  Github
+                  Github: Lazercat
                 </Typography>
                 <Typography>
                   Check out my github repos to view code. 
-                  <a href="https://www.github.com/Lazercat">https://www.github.com/Lazercat</a>
+                  <br />
+                  <a href="https://www.github.com/Lazercat">
+                  <Button variant="contained" color="secondary" className={classes.button}>
+                    <LaunchIcon className={classes.leftIcon} />
+                    Github
+                  </Button>
+                  </a>
                 </Typography>
               </Paper>
             </Grid>
 
-            <Grid item xs={6} md={4}>
+            <Grid item xs={12} sm={4} md={3}>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
                 <Typography variant="h6" gutterBottom>
-                  LinkedIn
+                  LinkedIn: jesseaustinlewis
                 </Typography>
                 <Typography>
-                  Connect with me on LinkedIn.
-                  <a href="https://linkedin.com/in/jesseaustinlewis">https://linkedin.com/in/jesseaustinlewis</a>
+                  Connect with me on LinkedIn. <br />
+            
+                  <a href="https://linkedin.com/in/jesseaustinlewis">                  
+                  <Button variant="contained" color="secondary" className={classes.button}>
+                    <LaunchIcon className={classes.leftIcon} />
+
+                    LinkedIn
+                  </Button></a>
                 </Typography>
               </Paper>
             </Grid>
 
-            <Grid item xs={6} md={4}>
+            <Grid item xs={12} sm={4} md={3}>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
                 <Typography variant="h6" gutterBottom>
-                  Medium
+                  Medium: @TheJesseLewis
                 </Typography>
                 <Typography>
                   Follow my tech articles on Medium.com.
-                  <a href="https://www.medium.com/@TheJesseLewis">https://www.medium.com/@TheJesseLewis</a>
+                  <br />
+                  <a href="https://www.medium.com/@TheJesseLewis">
+                  <Button variant="contained" color="secondary" className={classes.button}>
+                    <LaunchIcon className={classes.leftIcon} />
+                    Medium
+                  </Button>
+                  </a>
                 </Typography>
               </Paper>
             </Grid>
-
-            <Grid item xs={6} md={4}>
-              <Paper elevation={0} className={classes.sidebarAboutBox}>
-                <Typography variant="h6" gutterBottom>
-                  Resume
-                </Typography>
-                <Typography>
-                  View a copy of my resume. 
-                </Typography>
-                <Download file="Jesse-Lewis-Resume.pdf" content="# hello world">
-                <Button variant="contained" color="secondary" className={classes.button}>
-                    <ArchiveIcon className={classes.leftIcon} />
-                    Resume
-                </Button>
-            </Download>
-              </Paper>
-            </Grid>
-
-
             {/* End sidebar */}
           </Grid>
-        </main>
       </div>
     </React.Fragment>
   );

@@ -5,6 +5,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import LaunchIcon from '@material-ui/icons/Launch';
+import Tooltip from '@material-ui/core/Tooltip';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -31,8 +33,8 @@ import InfoIcon from '@material-ui/icons/Info';
 const styles = theme => ({
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   },
   toolbarMain: {
     borderBottom: `1px solid ${theme.palette.grey[300]}`,
@@ -44,7 +46,8 @@ const styles = theme => ({
     justifyContent: 'space-between',
   },
   mainFeaturedPost: {
-    backgroundPosition: 'bottom',
+    backgroundImage: `url('/img/mapback.jpg')`,
+    backgroundPosition: 'center',
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing.unit * 4,
@@ -98,6 +101,9 @@ const styles = theme => ({
   },
   icon: {
     color: 'white',
+  },
+  bigImg: {
+    width: '100%'
   }
 });
 
@@ -127,6 +133,12 @@ class MyTravels extends React.Component {
     }
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose= this.handleClose.bind(this);
+  }
+
+  componentDidMount(){
+    fetch('https://my-travels-log.herokuapp.com/')
+      .then(res=> {res=null})
+      .catch(err=> {err=null});
   }
 
   handleOpen(val) {
@@ -159,7 +171,7 @@ class MyTravels extends React.Component {
                   <Grid item md={6}>
                     <div className={classes.mainFeaturedPostContent}>
                       <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                        MyTravels Log
+                        MyTravels Web App
                       </Typography>
                     </div>
                   </Grid>
@@ -180,14 +192,14 @@ class MyTravels extends React.Component {
                         {
                           <CardContent key={projectSummary[0].title} >
                             <section className={classes.section}> 
-                              <Grid container spacing={20}> 
+                              <Grid container spacing={24}> 
                                 <Grid item xs={12} md={6}>
 
                                 <Typography component="h2" variant="h5">
-                                Share your art online!
+                                Track your rad travels!
                               </Typography>
-                              <Typography paragraph>
-                                ArtShare is the capstone project from my time as a Web Development Fellow at General Assembly in Austin, TX. It is to date my greatest coding delight and will remain an ongoing project. Its currently in beta as I plan to add and test many more features to it based on user feedback. I am using this project as a passion piece and also as a means to challenge myself to understand the full spectrum of true production web application needs using a MERN stack framework (MongoDB, Express, React.js and Node.js)
+                               <Typography paragraph>
+                                   MyTravels is a simple app that allows users to signup/login with their Facebook account and then build a list of cities they have been to in the world that also creates a google map with map markers of each for their amusement.  
                               </Typography>
 
                                   <Paper elevation={0} >
@@ -195,62 +207,64 @@ class MyTravels extends React.Component {
                                       MVP Features
                                     </Typography>
 
-                                    <Typography variant="subtitle1" color="textSecondary">
                                       <ul>
-                                          <li>Simple Facebook Login</li>
-                                          <li>ArtWork site search</li>
-                                          <li>Basic artist specific pages</li>
-                                          <li>Users photos auto stored in cloud storage solution</li>
+                                          <li>Users can reach a homepage and signup / login using facebook (oAuth))</li>
+                                          <li>Users can view their dashboard page</li>  
+                                          <li>Dashboard page has a google api map and a display of all locations they have entered</li>
+                                          <li>Users can add locations they've visited with a locations form</li>
+                                          <li>Users can view basic stats of the number of cities and countries they've been to.</li>
                                           <li>Users can title, describe and add search tags to their photos</li>
+                                          <li>Users locations display a pin on the google api map</li>
+                                          <li>Users can view all locations they've added</li>
+                                          <li>Users can update/delete locations they've added.</li>
+                                          <li>User can logout</li>
+                                          <li>Users can delete locations they've added (which also deletes the reference to that location in their user table on MongoDB).</li>
+                                          <li>Returning users with an active session cookie can auto login.</li>
                                       </ul>
-                                    </Typography>
-
                                   </Paper>
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                 <Paper elevation={1} className={classes.sidebarAboutBox}>
-                                  <Typography variant="h6" gutterBottom>
-                                    Gallery
-                                  </Typography>
-                                  <Typography>
-                                  <div className={classes.root}>
-                                  <GridList cellHeight={200} spacing={2} className={classes.gridList}>
-                                      {tileData.map(tile => (
-                                        <GridListTile key={tile.image} cols={tile.featured ? 2 : 1} rows={tile.featured ? 2 : 1}>
-                                          <img src={tile.image} alt={tile.title} />
-                                          <GridListTileBar
-                                            title={tile.title}
-                                            titlePosition="top"
-                                            actionIcon={
-                                              <IconButton variant="fab" color="secondary" className={classes.icon} onClick={()=>this.handleOpen(tile.image)}>
-                                                <SearchIcon />
-                                              </IconButton>
-                                            }
-                                            actionPosition="left"
-                                            className={classes.titleBar}
-                                          />
-                                        </GridListTile>
-                                      ))}
-                                    </GridList>
-                                  </div>
-                                  </Typography>
+                                <img src='/img/mytravelslg.png' className={classes.bigImg} alt={"MyTravels Log"} />
+
                                 </Paper>
+
+         
                                 </Grid>
+                             
                             </Grid>
+
                             </section> 
+                            <Grid container justify='center' spacing={8}>
+                                      
+                                      <Grid item xs={12} md={2}>
+                                      <Tooltip placement="top" title="MyTravels is hosted in a beta on-demand server at Heroku. Please give it a moment to spin up.">
+                                        <a className={classes.btnLink} href="https://my-travels-log.herokuapp.com/" target="_blank">
+                                          <Button size="small"  color="secondary" variant="contained">
+                                            <LaunchIcon /> 
+                                            &nbsp;Launch App
+                                          </Button>
+                                        </a>
+                                        </Tooltip>
+                                      </Grid>
+                                      <Grid item xs={12} md={2}>
+                                      <Tooltip placement="top" title="Visit the Github repo for MyTravels App in a new browser tab.">
+                                      <a className={classes.btnLink} href="https://github.com/Lazercat/my_travels_log" target="_blank">
+                                        <Button size="small"  color="primary" variant="contained">
+                                          <CodeIcon />
+                                          &nbsp;Git Repo</Button>
+                                        </a>
+                                        </Tooltip>
+                                      </Grid>
+                                    </Grid>
     
-                            <section className={classes.section}> 
-                              <Typography component="h2" variant="h5">
-                                ArtShare Stack <br />
-                              </Typography>
-                            
+                            <section className={classes.section}>             
                               <Grid container spacing={40}> 
-                                <Grid item xs={12} md={6}>
+                                <Grid item xs={12} md={12}>
                                 <Paper elevation={0} >
                                   <Typography variant="h6" gutterBottom>
-                                    ArtShare API
+                                    MyTravels Stack
                                   </Typography>
-                                  <Typography>
                                     <ul>
                                       <li><strong>Express Router:</strong>Server-side routes for handling http requests</li>
                                       <li><strong>Body-Parser:</strong>assists in tidy work behind handling req.body data and json calls</li>
@@ -259,32 +273,11 @@ class MyTravels extends React.Component {
                                       <li><strong>Mongoose:</strong> ORM middleware for handling CRUD functions from express http requests</li>
                                       <li><strong>MongoDB:</strong> the business data database solution where all artwork data is stored and retrieved from.</li>
                                     </ul>
-                                  </Typography>
-                                  <Button size="small"  color="primary">Launch App</Button>
-                                  <Button size="small"  color="primary">Github Repo</Button>
+          
                                 </Paper>
                                 </Grid>
     
-                                <Grid item xs={12} md={6}>
-                                <Paper elevation={0}>
-                                  <Typography variant="h6" gutterBottom>
-                                    ArtShare React Client
-                                  </Typography>
-                                  <Typography>
-                                    <ul>
-                                      <li><strong>React-Router:</strong> The front-end client router for navigating the site</li>
-                                      <li><strong>Axios/Axios-FileUpload:</strong> assists in API calls from client</li>
-                                      <li><strong>Firebase:</strong> user authentication solution using a Facebook Login</li>
-                                      <li><strong>Facebook Developer:</strong> Facebook Login: a Facebook web app used to support Firebase and user logins via Facebook</li>
-                                      <li><strong>React-Dropzone (Dropzone.js): </strong>Middleware for handling file uploads</li>
-                                      <li><strong>Cloudinary API:</strong> a file storage cloud solution for user artworks. I wanted to separate files from data.</li>
-                                      <li><strong>Back-end Server: Node.js</strong></li>
-                                    </ul>
-                                  </Typography>
-                                  <Button size="small"  color="primary">Launch App</Button>
-                                  <Button size="small"  color="primary">Github Repo</Button>
-                                </Paper>
-                                </Grid>
+                      
                             </Grid>
     
     

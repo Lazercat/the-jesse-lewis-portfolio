@@ -35,8 +35,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const styles = theme => ({
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   },
   toolbarMain: {
     borderBottom: `1px solid ${theme.palette.grey[300]}`,
@@ -61,7 +61,7 @@ const styles = theme => ({
     },
   },
   mainGrid: {
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 2,
   },
   card: {
     display: 'flex',
@@ -79,7 +79,7 @@ const styles = theme => ({
     width: 150
   },
   markdown: {
-    padding: `${theme.spacing.unit * 3}px 0`,
+    padding: `${theme.spacing.unit * 1}px 0`,
   },
   sidebarAboutBox: {
     padding: theme.spacing.unit * 2,
@@ -284,9 +284,8 @@ class TicTacToe extends React.Component {
       return (
         <React.Fragment>
             <CssBaseline />
-                <div>
                     <Dialog
-                      open={open}
+                      open={this.state.open}
                       onClose={this.handleNextRound}
                       aria-labelledby="alert-dialog-title"
                       aria-describedby="alert-dialog-description"
@@ -303,7 +302,7 @@ class TicTacToe extends React.Component {
                         </Button>
                       </DialogActions>
                     </Dialog>
-                  </div>
+          
     
             <div className={classes.layout}>
                 <main>
@@ -313,9 +312,8 @@ class TicTacToe extends React.Component {
                               <Typography variant="h2"> 
                                 Tic Tac Toe
                               </Typography>
-                              <Typography variant="subheading">
-                                (React.js / Material UI)
-                                written by: Jesse Lewis
+                              <Typography variant="subtitle1">
+                                <strong>Written in React.js with Material UI by Jesse Lewis</strong>
                               </Typography>
                           </Grid>
                           </Grid>

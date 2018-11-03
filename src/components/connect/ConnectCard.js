@@ -14,22 +14,29 @@ import MediaGithub from './img/Octocat.png';
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 400,
   },
   media: {
-    height: 140,
+    height: 60,
   },
+  btnLink: {
+    color: 'white',
+    textDecoration: 'none'
+  }
 };
 
 function ConnectCard(props) {
   const { classes, cardInfo } = props;
   return (
     <Card className={classes.card}>
+     
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={cardInfo.media}
         />
+
+      <a href={cardInfo.url}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {cardInfo.title}
@@ -37,12 +44,17 @@ function ConnectCard(props) {
           <Typography component="p">
             {cardInfo.description}
           </Typography>
+            {cardInfo.type==="link"?cardInfo.url:null}
         </CardContent>
+      </a>
+      
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          <a href={cardInfo.url}>{cardInfo.url}</a>
+      <a className={classes.btnLink} href={cardInfo.url}>
+        <Button size="small" color="secondary" variant="contained">
+         {cardInfo.type==="link"?"Visit":"Email"}
         </Button>
+        </a>
       </CardActions>
     </Card>
   );

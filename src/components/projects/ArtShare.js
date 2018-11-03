@@ -31,8 +31,8 @@ import InfoIcon from '@material-ui/icons/Info';
 const styles = theme => ({
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   },
   toolbarMain: {
     borderBottom: `1px solid ${theme.palette.grey[300]}`,
@@ -44,6 +44,7 @@ const styles = theme => ({
     justifyContent: 'space-between',
   },
   mainFeaturedPost: {
+    backgroundImage: `url('/img/artshare-bg.jpg')`,
     backgroundPosition: 'bottom',
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
@@ -98,6 +99,10 @@ const styles = theme => ({
   },
   icon: {
     color: 'white',
+  },
+  btnLink: {
+    color: 'white',
+    textDecoration: 'none'
   }
 });
 
@@ -190,13 +195,13 @@ class ArtShare extends React.Component {
                         {
                           <CardContent key={projectSummary[0].title} >
                             <section className={classes.section}> 
-                              <Grid container spacing={20}> 
+                              <Grid container spacing={16}> 
                                 <Grid item xs={12} md={6}>
 
                                 <Typography component="h2" variant="h5">
                                 Share your art online!
                               </Typography>
-                              <Typography paragraph>
+                              <Typography variant="body1" paragraph>
                                 ArtShare is the capstone project from my time as a Web Development Fellow at General Assembly in Austin, TX. It is to date my greatest coding delight and will remain an ongoing project. Its currently in beta as I plan to add and test many more features to it based on user feedback. I am using this project as a passion piece and also as a means to challenge myself to understand the full spectrum of true production web application needs using a MERN stack framework (MongoDB, Express, React.js and Node.js)
                               </Typography>
 
@@ -205,15 +210,13 @@ class ArtShare extends React.Component {
                                       MVP Features
                                     </Typography>
 
-                                    <Typography variant="subtitle1" color="textSecondary">
                                       <ul>
-                                          <li>Simple Facebook Login</li>
+                                          <li>Simple Facebook Login/Signup</li>
                                           <li>ArtWork site search</li>
                                           <li>Basic artist specific pages</li>
                                           <li>Users photos auto stored in cloud storage solution</li>
                                           <li>Users can title, describe and add search tags to their photos</li>
                                       </ul>
-                                    </Typography>
 
                                   </Paper>
                                 </Grid>
@@ -222,7 +225,6 @@ class ArtShare extends React.Component {
                                   <Typography variant="h6" gutterBottom>
                                     Gallery
                                   </Typography>
-                                  <Typography>
                                   <div className={classes.root}>
                                   <GridList cellHeight={200} spacing={2} className={classes.gridList}>
                                       {tileData.map(tile => (
@@ -243,7 +245,6 @@ class ArtShare extends React.Component {
                                       ))}
                                     </GridList>
                                   </div>
-                                  </Typography>
                                 </Paper>
                                 </Grid>
                             </Grid>
@@ -256,11 +257,10 @@ class ArtShare extends React.Component {
                             
                               <Grid container spacing={40}> 
                                 <Grid item xs={12} md={6}>
-                                <Paper elevation={0} >
+                                <Paper elevation={0}>
                                   <Typography variant="h6" gutterBottom>
                                     ArtShare API
                                   </Typography>
-                                  <Typography>
                                     <ul>
                                       <li><strong>Express Router:</strong>Server-side routes for handling http requests</li>
                                       <li><strong>Body-Parser:</strong>assists in tidy work behind handling req.body data and json calls</li>
@@ -269,10 +269,15 @@ class ArtShare extends React.Component {
                                       <li><strong>Mongoose:</strong> ORM middleware for handling CRUD functions from express http requests</li>
                                       <li><strong>MongoDB:</strong> the business data database solution where all artwork data is stored and retrieved from.</li>
                                     </ul>
-                                  </Typography>
-                                  <Button size="small"  color="primary">Launch App</Button>
-                                  <Button size="small"  color="primary">Github Repo</Button>
-                                </Paper>
+                                  <Grid container spacing={8}>
+                                    <Grid item xs={12} md={3}>
+                                      <Button size="small"  color="secondary" variant="contained"><a className={classes.btnLink} href="https://artshare-api.herokuapp.com">Launch App</a></Button>
+                                    </Grid>
+                                    <Grid item xs={12} md={3}>
+                                      <Button size="small"  color="primary" variant="contained"> <a className={classes.btnLink} href="https://github.com/Lazercat/Artshare-API">Github Repository</a> </Button>
+                                    </Grid>
+                                  </Grid>
+                                 </Paper>
                                 </Grid>
     
                                 <Grid item xs={12} md={6}>
@@ -280,7 +285,6 @@ class ArtShare extends React.Component {
                                   <Typography variant="h6" gutterBottom>
                                     ArtShare React Client
                                   </Typography>
-                                  <Typography>
                                     <ul>
                                       <li><strong>React-Router:</strong> The front-end client router for navigating the site</li>
                                       <li><strong>Axios/Axios-FileUpload:</strong> assists in API calls from client</li>
@@ -290,9 +294,14 @@ class ArtShare extends React.Component {
                                       <li><strong>Cloudinary API:</strong> a file storage cloud solution for user artworks. I wanted to separate files from data.</li>
                                       <li><strong>Back-end Server: Node.js</strong></li>
                                     </ul>
-                                  </Typography>
-                                  <Button size="small"  color="primary">Launch App</Button>
-                                  <Button size="small"  color="primary">Github Repo</Button>
+                                  <Grid container spacing={8}>
+                                    <Grid item xs={12} md={3}>
+                                      <Button size="small"  color="secondary" variant="contained"><a className={classes.btnLink} href="https://artshare-react.herokuapp.com">Launch App</a></Button>
+                                    </Grid>
+                                    <Grid item xs={12} md={3}>
+                                      <Button size="small"  color="primary" variant="contained"><a className={classes.btnLink} href="https://github.com/Lazercat/Artshare-React">Github Repository</a> </Button>
+                                    </Grid>
+                                  </Grid>
                                 </Paper>
                                 </Grid>
                             </Grid>

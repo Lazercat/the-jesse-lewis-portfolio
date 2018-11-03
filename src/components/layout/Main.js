@@ -23,6 +23,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Tooltip from '@material-ui/core/Tooltip';
 
+import teal from '@material-ui/core/colors/teal';
+import indigo from '@material-ui/core/colors/indigo';
+import grey from '@material-ui/core/colors/grey';
+
 import HomeIcon from '@material-ui/icons/Home';
 import VibrationIcon from '@material-ui/icons/Vibration';
 import WorkIcon from '@material-ui/icons/Work';
@@ -75,6 +79,8 @@ const styles = theme => ({
   drawerPaper: {
     position: 'relative',
     whiteSpace: 'nowrap',
+    backgroundColor: grey[300],
+    boxShadow: `20px solid ${grey[600]}`,
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -103,6 +109,14 @@ const styles = theme => ({
     flexGrow: 1,
     padding: 0,
   },
+  icon: {
+    color: indigo[800]
+  },
+  iconHover: {
+    '&:hover': {
+      color: indigo[400],
+    },
+  },
 });
 
 class Main extends React.Component {
@@ -111,9 +125,7 @@ class Main extends React.Component {
     this.state = {
       open: false,
     };
-
   }
-
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -139,14 +151,13 @@ class Main extends React.Component {
         >
           <Toolbar disableGutters={!this.state.open}>
             <IconButton
-              color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
               className={classNames(classes.menuButton, {
                 [classes.hide]: this.state.open,
               })}
             >
-              <MenuIcon />
+              <MenuIcon  color="secondary" />
             </IconButton>
             <Typography variant="subtitle1" color="inherit" noWrap>
               The Jesse Lewis: Software Engineer and Digitizer of Dreams
@@ -176,9 +187,9 @@ class Main extends React.Component {
                 { id: "Let's Connect!", route: "/Connect", icon: <LinkIcon /> }
               ].map((item, index) => (
                 <Link key={index} to={item.route}>
-                  <Tooltip title={item.id} placement="right">
+                  <Tooltip  classes={{ tooltip: classes.lightTooltip }} title={item.id} placement="right">
                   <ListItem button key={item.id}>
-                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
                     <ListItemText primary={item.id} />
                   </ListItem>
                   </Tooltip>

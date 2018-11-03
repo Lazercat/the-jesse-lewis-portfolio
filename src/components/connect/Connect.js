@@ -20,16 +20,12 @@ import MediaMedium from './img/MediumLogo.png';
 import MediaLinkedIn from './img/LinkedInLogo.png';
 
 
+
 const styles = theme => ({
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    // [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-    //   width: 1100,
-    //   marginLeft: 'auto',
-    //   marginRight: 'auto',
-    // },
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   },
   toolbarMain: {
     borderBottom: `1px solid ${theme.palette.grey[300]}`,
@@ -41,7 +37,7 @@ const styles = theme => ({
     justifyContent: 'space-between',
   },
   mainFeaturedPost: {
-    // backgroundImage: `url(${Image})`,
+    backgroundImage: `url('/img/web-diagram.jpg')`,
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing.unit * 4,
@@ -90,6 +86,7 @@ const cards = [
     media: MediaGithub,
     alias: "Lazercat",
     description: "Github holds my repositories",
+    type: 'link',
     url: "https://github.com/Lazercat"
   },
   {
@@ -97,6 +94,7 @@ const cards = [
     media: MediaLinkedIn,
     alias: "Jesse Lewis",
     description: "Visit me on LinkedIn!",
+    type: 'link',
     url: "https://www.linkedin.com/in/jesseaustinlewis"
   },
   {
@@ -104,7 +102,24 @@ const cards = [
     media: MediaMedium,
     alias: "Jesse Lewis",
     description: "Read my developer blog on Medium.com",
+    type: 'link',
     url: "https://medium.com/@TheJesseLewis"    
+  },
+  {
+    title: "General Assembly",
+    media: '/img/general-assembly.png',
+    alias: "Jesse Lewis",
+    description: "Visit my student profile at General Assembly Bootcamp",
+    type: 'link',
+    url: "https://profiles.generalassemb.ly/profiles/jesse-austin-lewis"    
+  },
+  {
+    title: "Email Me",
+    media: '/img/gmail.png',
+    alias: "Jesse Lewis",
+    description: "Send an email: jesseaustinlewis@gmail.com",
+    type: 'email',
+    url: "mailto:jesseaustinlewis@gmail.com?subject=hello from thejesselewis.com"    
   },
 ]
 
@@ -134,17 +149,12 @@ function Connect(props) {
           {/* Sub featured posts */}
           <Grid container spacing={40} className={classes.cardGrid}>
             {cards.map(card => (
-              <Grid item key={card.title} xs={12} md={4}>
+              <Grid item key={card.title} xs={12} sm={6} md={4}>
                   <ConnectCard cardInfo={card}/>
               </Grid>
             ))}
           </Grid>
-          {/* End sub featured posts */}
-          <Grid container spacing={40} className={classes.mainGrid}>
-            {/* Main content */}
-
-            {/* End main content */}
-          </Grid>
+      
         </main>
       </div>
 

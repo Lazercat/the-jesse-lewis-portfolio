@@ -4,6 +4,9 @@ import Main from './components/layout/Main';
 import './App.css';
 
 const theme = { 
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: { main: '#1c2566' },
     secondary: { main: '#1de9b6' }

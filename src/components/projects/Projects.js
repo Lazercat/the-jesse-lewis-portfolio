@@ -27,13 +27,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const styles = theme => ({
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    // [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-    //   width: 1100,
-    //   marginLeft: 'auto',
-    //   marginRight: 'auto',
-    // },
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   },
   toolbarMain: {
     borderBottom: `1px solid ${theme.palette.grey[300]}`,
@@ -151,9 +146,9 @@ function Projects(props) {
           </Paper>
           {/* End main featured post */}
           {/* Sub featured posts */}
-          <Grid container spacing={40} className={classes.cardGrid}>
+          <Grid container spacing={16} className={classes.cardGrid}>
             {projectApps.map(post => (
-                <Grid item key={post.title} xs={6} md={6}>
+                <Grid item key={post.title} xs={12} md={6}>
                   <Card>
                     <Grid container>
                       <CardActionArea>
@@ -179,44 +174,14 @@ function Projects(props) {
                   <Grid container>
                     <CardActions>
                       <Link to={post.page}>
-                        <Button size="small" color="primary">
+                        <Button size="small" color="primary" variant="outlined">
                           Learn More
                         </Button>
                       </Link>             
-                        <Button size="small" color="secondary">
-                          <a href={post.url}>Launch App</a>
-                        </Button>
                     </CardActions>
                     </Grid>
                   </Card>
-                {/* <Card className={classes.card}>
-                  <div className={classes.cardDetails}>
-                    
-                    <CardMedia
-                      image={post.thumbnail}
-                      title={post.title}
-                    />
-                    <CardContent>
-                      <Typography component="h2" variant="h5">
-                        {post.title}
-                      </Typography>
-                      <Typography variant="subtitle1" color="textSecondary">
-                        {post.stack}
-                      </Typography>
-                      <Typography variant="subtitle1" paragraph>
-                        {post.description}
-                      </Typography>
-                      <Typography variant="subtitle1" color="primary">
-                        <Link to={post.page} >
-                            <Button size="small" variant="contained"  color="secondary" >Read more</Button>
-                        </Link>
-                        <Link to="/">
-                            <Button size="small" variant="contained"  color="primary">Launch App</Button>
-                        </Link>
-                      </Typography>
-                    </CardContent>
-                  </div>
-                </Card> */}
+      
               </Grid>
             ))}
           </Grid>
